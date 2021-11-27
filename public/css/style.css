@@ -1,0 +1,19 @@
+.message {
+    resize: none;
+    height: 100px;
+}
+
+.messaged {
+    resize: none;
+    height: 100px;
+}
+
+body {
+    overflow-x: visible;
+}
+
+.issue {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

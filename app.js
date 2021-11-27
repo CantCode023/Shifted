@@ -17,17 +17,42 @@ app.get('/', function(req,res) {
     res.render('index')
 })
 
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-                'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+// i = message.charAt(i)
 
-function shift(offset=null, message=null) {
-    console.log(alphabet)
+// if (isalpha(i)) {
+//     shifted = alphabet.indexOf(i) + offset
+//     newMessage = alphabet[shifted]
+// } else if (!isalpha(i)) {
+//     newMessage += ''
+// } else {
+//     newMessage += ''
+// }
+
+function shift(str, num) {
+    str = str.toLowerCase();
+
+    var result = '';
+    var charcode = 0;
+
+    for (var i = 0; i < str.length; i++) {
+        charcode = (str[i].replace('%20',' ').replace('%0A','<br>').charCodeAt()) + num;
+        result += String.fromCharCode(charcode);
+    }
+    return result.replace('!', ' ').replace('','<br>');
+
 }
 
 app.get('/encode/:string', function(req,res) {
-    let string = req.params.string
+    let string = encodeURI(req.params.string.toString())
 
-    shift()
+    res.send(shift(string, 1))
+})
+
+app.get('/decode/:string', function(req,res) {
+    let string = encodeURI(req.params.string.toString())
+
+    res.send(shift(string, -1))
 })
 
 app.listen(port)
+console.log("Server have started!")
