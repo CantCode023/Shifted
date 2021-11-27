@@ -16,11 +16,10 @@ and num is the shifting offset you want it to set to.
 
 Say you set the offset to 1, if you set parameter str to a then it will return b as it shifts a one letter up.
 
-             _ STR
-            |
-FUNCTION ---
-            |_ NUM
             
+FUNCTION - STR || NUM
+
+
 ```js
 function shift(str, num) {
     str = str.toLowerCase();
