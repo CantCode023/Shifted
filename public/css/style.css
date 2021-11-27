@@ -11,9 +11,3 @@
 body {
     overflow-x: visible;
 }
-
-.issue {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
